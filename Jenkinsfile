@@ -13,6 +13,14 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Unit Tests') {
+    steps {
+        sh '''
+        echo "Running unit tests..."
+        mvn test
+        '''
+    }
+}
 
         stage('Build Docker Image') {
             steps {
